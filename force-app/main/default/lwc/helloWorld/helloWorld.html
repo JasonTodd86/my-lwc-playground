@@ -1,7 +1,12 @@
 <template>
     <lightning-card title="Hello World" icon-name="custom:custom14">
         <div class="slds-p-horizontal_small">
-            Wazzup, {greeting}!
+            <lightning-input
+                label="Your Name"
+                value={greeting}
+                onchange={handleChange}> // wires the browser's native change event to a method named handleChange in the JS
+            </lightning-input>
+            <p class="slds-p-top_small">Wazzup, {greeting}!</p>
         </div>
     </lightning-card>
 </template>
