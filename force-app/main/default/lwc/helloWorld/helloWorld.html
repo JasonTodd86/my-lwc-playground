@@ -1,12 +1,21 @@
 <template>
     <lightning-card title="Hello World" icon-name="custom:custom14">
         <div class="slds-p-horizontal_small">
-            <lightning-input
-                label="Your Name"
-                value={greeting}
-                onchange={handleChange}> // wires the browser's native change event to a method named handleChange in the JS
-            </lightning-input>
-            <p class="slds-p-top_small">Wazzup, {greeting}!</p>
+            <lightning-input label="Your Name" value={greeting} onchange={handleChange}></lightning-input>
+            <lightning-button label="Save Greeting" onclick={handleSave} class="slds-p-top_small"></lightning-button>
+
+            <template if:true={hasGreeting}>
+                <p class="slds-p-top_small">Wazzup, {greeting}!</p>
+            </template>
+            <template if:false={hasGreeting}>
+                <p class="slds-p-top_small">Type a name above.</p>
+            </template>
+
+            <ul class="slds-p-top_small">
+                <template for:each={history} for:item="name">
+                    <li key={name}>{name}</li>
+                </template>
+            </ul>
         </div>
     </lightning-card>
 </template>
