@@ -19,4 +19,9 @@ export default class HelloWorld extends LightningElement {
     get hasGreeting(){
         return this.greeting.length > 0;
     }
+
+    handleRemove(event){
+        const nameToRemove = event.detail;
+        this.history = this.history.filter(n => n !== nameToRemove);
+    }
 }

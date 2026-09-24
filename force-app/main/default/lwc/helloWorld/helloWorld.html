@@ -13,7 +13,9 @@
 
             <ul class="slds-p-top_small">
                 <template for:each={history} for:item="name">
-                    <li key={name}>{name}</li>
+                    <li key={name}>
+                        <c-greeting-display name={name} onremove={handleRemove}></c-greeting-display>
+                    </li>
                 </template>
             </ul>
         </div>
